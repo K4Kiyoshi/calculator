@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+#display {
+    outline: none;
+    padding-left: 10px;
+    padding: 10px;
+    width: 100%;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 22px;
+    background-color: lightgreen;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+#display:focus {
+    border: 2px solid white;
+}
+
+
+#display::placeholder {
+    font-weight: 500;
+}
+
+
+input[type="button"] {
+    background-color: black;
+    color: white;
+    width: 60px;
+    padding: 2px;
+    font-size: 22px;
+    border: 2px solid rgb(126, 126, 126);
+    outline: none;
+    cursor: pointer;
+    transition: 150ms linear;
+    border-radius: 5px;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1)
+}
+
+
+table {
+    border: 2px solid black;
+    width: 30vw;
+    margin-bottom: 10px;
+    background-color: grey;
+    box-shadow: 0 10px 40px rgba(110, 110, 110, 0.568);
+    border-radius: 40px;
+}
+
+#history {
+    background-color: #c8c8c8;
+    height: 100px;
+    margin: 10px 5vw 20px 5vw;
+    padding-left: 20px;
+    padding-top: 10px;
+    overflow-y: auto;
+}
+
+
+#history::-webkit-scrollbar {
+    width: 4px;
+    border-radius: 5px;
+
+}
+
+#history::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(63, 63, 63);
+}
+
+#created-by {
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Odibee Sans', cursive;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+#my-prof-link {
+    font-family: 'Odibee Sans', cursive;
+    letter-spacing: 2px;
+}
+
+.open-button {
+    background-color: black;
+    color: white;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 640px;
+    right: 590px;
+    width: 30px;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1)
+}
+
+.open-button:hover {
+    background: rgba(0, 0, 0, 0.2)
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+
+.form-container {
+    width: 400px;
+    padding: 5px;
+    background-color: grey;
+    position: fixed;
+    bottom: 500px;
+    right: 490px;
+    border-radius: 15px;
+
+
+}
+
+body {
+    background: url(a.jpg);
+    background-repeat: no-repeat;
+    background-size: 1550px 740px;
+
+}
+
+
+.form-container .btn {
+
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+
+    border-radius: 5px;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1)
+}

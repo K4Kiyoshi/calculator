@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Document </title>
+        <link rel="stylesheet" href="calculatorSafura.css">
+</head>
+
+<body>
+        <button class="open-button" onclick="openForm()">H</button>
+        <div class="form-popup" id="myForm">
+                <form action="/action_page.php" class="form-container">
+                        <div id='bord'>
+                                <div id="history">history</div>
+                        </div>
+
+                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+        </div>
+        <br>
+        <center>
+
+                <!-- <div id='bord'> -->
+                <!-- <div id="history"> history... </div> -->
+                <form name="calculator">
+
+                        <table width="10" hight="30" cellpadding="3" cellspacing="17">
+
+                                <tr>
+                                        <td colspan="7">
+                                                <center style="color:whitesmoke;"><b
+                                                                style="color:whitesmoke; font-size: 45px;">Calculator</b>
+                                                </center>
+
+
+
+                                                <input type="text" name="display" id="display" value="0" disabled>
+                                                <br>
+                                </tr>
+
+                                <tr>
+                                        <td><input style="background-color:orange;" type="button" name="clear" value="C"
+                                                        id="clear"
+                                                        onclick="calculator.display.value = ''; navigator.vibrate(100) ; document.getElementById('display').value='0' ; cancel()">
+                                        </td>
+
+                                        <td><input type="button" name="divide" value="/"
+                                                        onclick="calculator.display.value += '/'; navigator.vibrate(100) ; operand(this.value) "
+                                                        id="operator"></td>
+
+                                        <td><input type="button" name="%" value="%"
+                                                        onclick="calculator.display.value +='%';navigator.vibrate(100) ; operand(this.value) " />
+                                        </td>
+
+                                        <td><input type="button" name="del" value="del"
+                                                        onclick="calculator.display.value = (calculator.display.value).substring(0, (calculator.display.value).length-1); navigator.vibrate(100) ; deleteLast()">
+                                        </td>
+                                </tr>
+
+
+                                <tr>
+                                        <td><input type="button" name="seven" value="7" onclick="(resultCreated() == true) ? calculator.display.value = '7' :
+      (calculator.display.value == '0' ? calculator.display.value = '7' : calculator.display.value += '7')  ; 
+      navigator.vibrate(100) ; 
+      operand(this.value) "></td>
+
+                                        <td><input type="button" name="eight" value="8"
+                                                        onclick="(resultCreated() == true) ? calculator.display.value = '8' : (calculator.display.value == '0' ? calculator.display.value = '8' : calculator.display.value += '8')  ; navigator.vibrate(100); operand(this.value)">
+                                        </td>
+
+                                        <td><input type="button" name="nine" value="9"
+                                                        onclick="(resultCreated() == true) ? calculator.display.value = '9' : (calculator.display.value == '0' ? calculator.display.value = '9' : calculator.display.value += '9')  ; navigator.vibrate(100); operand(this.value)">
+                                        </td>
+
+                                        <td><input type="button" name="multiply" value="*"
+                                                        onclick="calculator.display.value += '*'; navigator.vibrate(100) ; operand(this.value)"
+                                                        id="operator"></td>
+                                </tr>
+
+                                <tr>
+                                        <td><input type="button" name="four" value="4"
+                                                        onclick="(resultCreated() == true) ? calculator.display.value = '4' : (calculator.display.value == '0' ? calculator.display.value = '4' : calculator.display.value += '4')   ; navigator.vibrate(100) ; operand(this.value)">
+                                        </td>
+
+                                        <td><input type="button" name="five" value="5"
+                                                        onclick="(resultCreated() == true) ? calculator.display.value = '5' : (calculator.display.value == '0' ? calculator.display.value = '5' : calculator.display.value += '5')   ; navigator.vibrate(100) ; operand(this.value)">
+                                        </td>
+
+                                        <td><input type="button" name="six" value="6"
+                                                        onclick="(resultCreated() == true) ? calculator.display.value = '6' : (calculator.display.value == '0' ? calculator.display.value = '6' : calculator.display.value += '6')   ; navigator.vibrate(100) ; operand(this.value)">
+                                        </td>
+
+                                        <td><input type="button" name="minus" value="-" id="operator"
+                                                        onclick="calculator.display.value += '-'; navigator.vibrate(100) ; operand(this.value)">
+                                        </td>
+                                </tr>
+
+                                <tr>
+                                        <td><input type="button" name="one" value="1"
+                                                        onclick="(resultCreated() == true) ? calculator.display.value = '1' : (calculator.display.value == '0' ? calculator.display.value = '1' : calculator.display.value += '1')  ; navigator.vibrate(100) ; operand(this.value)">
+                                        </td>
+
+                                        <td><input type="button" name="two" value="2"
+                                                        onclick="(resultCreated() == true) ? calculator.display.value = '2' : (calculator.display.value == '0' ? calculator.display.value = '2' : calculator.display.value += '2')  ; navigator.vibrate(100) ; operand(this.value)">
+                                        </td>
+
+                                        <td><input type="button" name="three" value="3"
+                                                        onclick="(resultCreated() == true) ? calculator.display.value = '3' : (calculator.display.value == '0' ? calculator.display.value = '3' : calculator.display.value += '3')  ; navigator.vibrate(100) ; operand(this.value)">
+                                        </td>
+
+                                        <td><input type="button" id="operator" name="plus" value="+"
+                                                        onclick="calculator.display.value += '+'; navigator.vibrate(100) ; operand(this.value)">
+                                        </td>
+                                </tr>
+
+                                <tr>
+
+                                        <td><input type="button" name="dz" value="00"
+                                                        onclick="calculator.display.value +='00'; navigator.vibrate(100)" />
+                                        </td>
+
+                                        <td><input type="button" name="zero" value="0"
+                                                        onclick="(resultCreated() == true) ? calculator.display.value = '0' : (calculator.display.value == '0' ? calculator.display.value = '0' : calculator.display.value += '0')  ; navigator.vibrate(100) ; operand(this.value)">
+                                        </td>
+
+                                        <td><input type="button" name="dp" value="."
+                                                        onclick="calculator.display.value += '.'; navigator.vibrate(100) ; operand(this.value)">
+                                        </td>
+
+                                        <td><input style="background-color:green;" type="button" name="calc" value="="
+                                                        onclick="(verifyFormat() == true) ? calculator.display.value= returnMainValue() : calculator.display.value = eval(calculator.display.value) ; navigator.vibrate(100) ; history()">
+                                        </td>
+                                </tr>
+
+                        </table>
+                </form>
+
+                <script>
+                </script>
+
+                <b> Note:- </b> If you want to see the previous result then please scroll the history
+
+                <script src="calculatorSafura.js"></script>
+        </center>
+
+        <br><br>
+
+
+
+</body>
+
+</html>
